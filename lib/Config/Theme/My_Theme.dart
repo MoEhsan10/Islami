@@ -3,6 +3,7 @@ import 'package:quran_app/Core/Colors_Manager.dart';
 
 class MyTheme {
   static ThemeData lightTheme = ThemeData(
+    primaryColor: ColorsManager.goldColor,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       iconTheme: IconThemeData(
@@ -39,11 +40,11 @@ class MyTheme {
     textTheme: TextTheme(
       headlineMedium: TextStyle(
         fontSize: 21,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         color: ColorsManager.blackTextColor,
       ),
       titleMedium: TextStyle(
-        fontSize: 19,
+        fontSize: 20,
         color: ColorsManager.blackTextColor,
         fontWeight: FontWeight.w400,
       ),

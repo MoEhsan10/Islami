@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quran_app/Core/Colors_Manager.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Quran_Details_Screen/Verse_Widget.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/quran_Tab/Quran_tab.dart';
@@ -35,9 +34,7 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
           ),
           body: versesContent.isEmpty
               ? const Center(
-                  child: CircularProgressIndicator(
-                    color: ColorsManager.goldColor,
-                  ),
+                  child: CircularProgressIndicator(),
                 )
               : SingleChildScrollView(
                   padding: const EdgeInsets.all(16.0),
