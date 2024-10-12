@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/Core/Strings_Manager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/hadith_Tab/Hadith_Tab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/quran_Tab/Quran_tab.dart';
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(StringsManager.appTitle),
+          title: Text(AppLocalizations.of(context)!.appTitle),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectionIndex,
@@ -44,22 +44,22 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {});
           },
           type: BottomNavigationBarType.fixed,
-          items: const [
+          items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(AssetsManager.quranIcon)),
-                label: StringsManager.quranLabel),
+                label: AppLocalizations.of(context)!.quranTab),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(AssetsManager.hadithIcon)),
-                label: StringsManager.hadithLabel),
+                label: AppLocalizations.of(context)!.hadithTab),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(AssetsManager.tasbehIcon)),
-                label: StringsManager.tasbehLabel),
+                label: AppLocalizations.of(context)!.sebhaTab),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage(AssetsManager.radioIcon)),
-                label: StringsManager.radioLabel),
+                label: AppLocalizations.of(context)!.radioTab),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
-                label: StringsManager.settingsLabel),
+                label: AppLocalizations.of(context)!.settingsTab),
           ],
         ),
         body: tabs[selectionIndex],

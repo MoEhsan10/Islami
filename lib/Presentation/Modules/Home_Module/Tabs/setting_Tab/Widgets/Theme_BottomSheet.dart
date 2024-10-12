@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran_app/Core/Colors_Manager.dart';
 
 class ThemeBottomsheet extends StatefulWidget {
@@ -17,11 +18,11 @@ class _ThemeBottomsheetState extends State<ThemeBottomsheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          buildSelectedItemThemeWidget('Light'),
+          buildSelectedItemThemeWidget(AppLocalizations.of(context)!.light),
           SizedBox(
             height: 12,
           ),
-          buildUnSelectedItemThemeWidget('Dark'),
+          buildUnSelectedItemThemeWidget(AppLocalizations.of(context)!.dark),
         ],
       ),
     );

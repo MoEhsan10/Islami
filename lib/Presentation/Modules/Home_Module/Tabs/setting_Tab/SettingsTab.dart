@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/setting_Tab/Widgets/Language_BottomSheet.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/setting_Tab/Widgets/Theme_BottomSheet.dart';
 
@@ -13,7 +14,7 @@ class SettingsTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Theme',
+            AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
@@ -32,7 +33,7 @@ class SettingsTab extends StatelessWidget {
                   border: Border.all(
                       color: Theme.of(context).dividerColor, width: 2)),
               child: Text(
-                'Light',
+                AppLocalizations.of(context)!.light,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
@@ -41,7 +42,7 @@ class SettingsTab extends StatelessWidget {
             height: 16,
           ),
           Text(
-            'Language',
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.labelMedium,
           ),
           SizedBox(
