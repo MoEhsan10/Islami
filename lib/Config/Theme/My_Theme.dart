@@ -53,6 +53,24 @@ class MyTheme {
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
-    ),
-  );
+        labelMedium: TextStyle(
+            fontSize: 21,
+            color: ColorsManager.blackTextColor,
+            fontWeight: FontWeight.w500),
+        labelSmall: TextStyle(
+            fontSize: 18,
+            color: ColorsManager.goldColor,
+            fontWeight: FontWeight.w500),
+        displayMedium: TextStyle(
+            fontSize: 23,
+            color: ColorsManager.goldColor,
+            fontWeight: FontWeight.w500),
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+          elevation: 12,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
+          ))));
 }
