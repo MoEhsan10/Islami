@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quran_app/Config/Theme/My_Theme.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Quran_Details_Screen/Verse_Widget.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/quran_Tab/Quran_tab.dart';
@@ -20,7 +21,9 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
     return Stack(
       children: [
         Image.asset(
-          AssetsManager.mainBGgLight,
+          MyTheme.isDarkEnable
+              ? AssetsManager.mainBGgDark
+              : AssetsManager.mainBGgLight,
           fit: BoxFit.fill,
           width: double.infinity,
           height: double.infinity,

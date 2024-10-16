@@ -35,7 +35,6 @@ class _LanguageBottomsheetState extends State<LanguageBottomsheet> {
         Spacer(),
         Icon(
           Icons.check,
-          color: ColorsManager.goldColor,
         )
       ],
     );
@@ -46,8 +45,7 @@ class _LanguageBottomsheetState extends State<LanguageBottomsheet> {
       unSelectedLanguage,
       style: Theme.of(context)
           .textTheme
-          .displayMedium
-          ?.copyWith(color: ColorsManager.blackTextColor),
-    );
+            .displayMedium
+            ?.copyWith(color: Theme.of(context).colorScheme.secondary));
   }
 }

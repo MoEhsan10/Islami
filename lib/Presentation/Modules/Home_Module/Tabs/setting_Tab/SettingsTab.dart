@@ -28,7 +28,7 @@ class SettingsTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onPrimary,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
                       color: Theme.of(context).dividerColor, width: 2)),
@@ -56,7 +56,7 @@ class SettingsTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onPrimary,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
                       color: Theme.of(context).dividerColor, width: 2)),
