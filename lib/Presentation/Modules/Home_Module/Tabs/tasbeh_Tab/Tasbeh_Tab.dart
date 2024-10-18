@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
+import 'package:quran_app/Providers/ThemeProvider.dart';
 
 class TasbehTab extends StatefulWidget {
   const TasbehTab({super.key});
@@ -22,84 +24,93 @@ class _TasbehTabState extends State<TasbehTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              top: 0,
-              child: Image.asset(
-                AssetsManager.sebhaHeadLogo,
-              ),
-            ),
-            Positioned(
-              child: AnimatedRotation(
-                turns: turns,
-                duration: Duration(milliseconds: 500),
+    var themeProvider = Provider.of<ThemeProvider>(context);
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
                 child: Image.asset(
-                  AssetsManager.sebhaBodyLogo,
+                  themeProvider.isLightTheme()
+                      ? AssetsManager.sebhaHeadLogo
+                      : AssetsManager.sebhaHeadLogoDark,
+                  width: 80,
                 ),
               ),
-            ),
-          ],
-        ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'عدد التسبيحات',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+
+              // Sebha Body (Rotating)
+              Padding(
+                padding: const EdgeInsets.only(top: 80),
+                child: AnimatedRotation(
+                  turns: turns,
+                  duration: const Duration(milliseconds: 500),
+                  child: Image.asset(
+                    themeProvider.isLightTheme()
+                        ? AssetsManager.sebhaBodyLogo
+                        : AssetsManager.sebhaBodyLogoDark,
+                    width: 220,
                   ),
-            ),
-          ],
-        ),
-        SizedBox(height: 10),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Text(
-            '$counter',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
                 ),
+              ),
+            ],
           ),
-        ),
-        SizedBox(height: 10),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 5),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(30),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'عدد التسبيحات',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+            ],
           ),
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                counter++;
-                turns += 1 / 33;
-                if (counter > 33) {
-                  counter = 0;
-                  index = (index + 1) % tasabeh.length;
-                  turns = 0;
-                }
-              });
-            },
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Text(
-              tasabeh[index],
+              '$counter',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
                   ),
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 5),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.onPrimaryFixed,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  counter++;
+                  turns += 1 / 33;
+
+                  // Reset after 33 counts
+                  if (counter > 33) {
+                    counter = 0;
+                    index = (index + 1) % tasabeh.length;
+                    turns = 0;
+                  }
+                });
+              },
+              child: Text(tasabeh[index],
+                  style: Theme.of(context).textTheme.titleSmall),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

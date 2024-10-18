@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/Core/Colors_Manager.dart';
 
 class MyTheme {
-  static bool isDarkEnable = false;
   static ThemeData lightTheme = ThemeData(
       colorScheme: ColorScheme.fromSeed(
+        onPrimaryFixed: ColorsManager.lightPrimary,
         onPrimary: ColorsManager.white,
         seedColor: ColorsManager.lightPrimary,
         primary: ColorsManager.lightPrimary,
@@ -45,9 +45,9 @@ class MyTheme {
       ),
     ),
       indicatorColor: ColorsManager.lightPrimary,
-      iconTheme: IconThemeData(color: ColorsManager.yellow),
-      textTheme: TextTheme(
-      headlineMedium: TextStyle(
+      iconTheme: IconThemeData(color: ColorsManager.lightPrimary),
+      textTheme: const TextTheme(
+        headlineMedium: TextStyle(
         fontSize: 21,
         fontWeight: FontWeight.w600,
         color: ColorsManager.blackTextColor,
@@ -78,6 +78,10 @@ class MyTheme {
             fontSize: 23,
             color: ColorsManager.blackTextColor,
             fontWeight: FontWeight.w500),
+        titleSmall: TextStyle(
+            fontSize: 23,
+            color: ColorsManager.white,
+            fontWeight: FontWeight.bold),
       ),
       bottomSheetTheme: BottomSheetThemeData(
           elevation: 12,
@@ -88,6 +92,7 @@ class MyTheme {
           ))));
   static ThemeData darkTheme = ThemeData(
       colorScheme: ColorScheme.fromSeed(
+        onPrimaryFixed: ColorsManager.yellow,
         onPrimary: ColorsManager.darkPrimary,
         seedColor: ColorsManager.darkPrimary,
         primary: ColorsManager.darkPrimary,
@@ -147,7 +152,7 @@ class MyTheme {
         ),
         labelMedium: TextStyle(
             fontSize: 21,
-            color: ColorsManager.yellow,
+            color: ColorsManager.white,
             fontWeight: FontWeight.w500),
         labelSmall: TextStyle(
             fontSize: 18,
@@ -161,6 +166,10 @@ class MyTheme {
             fontSize: 23,
             color: ColorsManager.white,
             fontWeight: FontWeight.w500),
+        titleSmall: TextStyle(
+            fontSize: 23,
+            color: ColorsManager.blackTextColor,
+            fontWeight: FontWeight.bold),
       ),
       bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: ColorsManager.darkPrimary,

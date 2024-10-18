@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/hadith_Tab/Hadith_Tab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/quran_Tab/Quran_tab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/radio_Tab/Radio_Tab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/setting_Tab/SettingsTab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/tasbeh_Tab/Tasbeh_Tab.dart';
-import 'package:quran_app/Config/Theme/My_Theme.dart';
+import 'package:quran_app/Providers/ThemeProvider.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -28,13 +29,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage(MyTheme.isDarkEnable
-                ? AssetsManager.mainBGgDark
-                : AssetsManager.mainBGgLight)),
+            image: AssetImage(
+              themeProvider.isLightTheme()
+                  ? AssetsManager.mainBGgLight
+                  : AssetsManager.mainBGgDark,
+            )),
       ),
       child: Scaffold(
         appBar: AppBar(
