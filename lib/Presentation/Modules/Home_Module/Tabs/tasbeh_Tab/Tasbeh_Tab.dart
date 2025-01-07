@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Providers/ThemeProvider.dart';
-
 class TasbehTab extends StatefulWidget {
   const TasbehTab({super.key});
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Quran_Details_Screen/Verse_Widget.dart';
@@ -12,7 +13,7 @@ class QuranDetailsScreen extends StatefulWidget {
 }
 
 class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
-  String versesContent = ""; // Store the whole file content as a single string
+  String versesContent = "";
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,9 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text(suraItem.suraName),
+            title: Text(
+              AppLocalizations.of(context)!.appTitle,
+            ),
             backgroundColor: Colors.transparent,
             elevation: 0,
           ),
@@ -54,16 +57,7 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
   void readQuranFile(int index) async {
     String fileContent = await rootBundle.loadString('assets/files/$index.txt');
     setState(() {
-      versesContent =
-          fileContent.trim(); // Store the whole content without splitting
+      versesContent = fileContent.trim();
     });
   }
-// void readQuranFileV2(int index) async {
-//   rootBundle.loadString('assets/files/$index.txt').then((value){
-//     print(value);
-//   });
-//   setState(() {
-//     versesContent = fileContent.trim(); // Store the whole content without splitting
-//   });
-// }
 }
