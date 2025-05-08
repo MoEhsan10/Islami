@@ -6,7 +6,7 @@ class RadioItem extends StatelessWidget {
   RadioItem({super.key, required this.radio});
 
   final Radios radio;
-  final player = AudioPlayer();
+  static final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
