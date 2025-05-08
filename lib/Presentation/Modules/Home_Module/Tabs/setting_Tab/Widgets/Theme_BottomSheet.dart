@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/Providers/LanguageProvider.dart';
-import 'package:quran_app/Providers/ThemeProvider.dart';
+import 'package:quran_app/Providers/Settings_Provider.dart';
 
 class ThemeBottomsheet extends StatefulWidget {
   const ThemeBottomsheet({super.key});
@@ -14,8 +13,8 @@ class ThemeBottomsheet extends StatefulWidget {
 class _ThemeBottomsheetState extends State<ThemeBottomsheet> {
   @override
   Widget build(BuildContext context) {
-    var themeProvider = Provider.of<ThemeProvider>(context);
-    var languageProvider = Provider.of<LanguageProvider>(context);
+    var themeProvider = Provider.of<SettingsProvider>(context);
+    var languageProvider = Provider.of<SettingsProvider>(context);
     return Container(
       padding: EdgeInsets.all(12),
       width: double.infinity,

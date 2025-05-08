@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_app/Providers/LanguageProvider.dart';
+import 'package:quran_app/Providers/Settings_Provider.dart';
 
 class LanguageBottomsheet extends StatefulWidget {
   const LanguageBottomsheet({super.key});
@@ -12,7 +12,7 @@ class LanguageBottomsheet extends StatefulWidget {
 class _LanguageBottomsheetState extends State<LanguageBottomsheet> {
   @override
   Widget build(BuildContext context) {
-    var languageProvider = Provider.of<LanguageProvider>(context);
+    var languageProvider = Provider.of<SettingsProvider>(context);
     return Container(
       padding: EdgeInsets.all(12),
       width: double.infinity,
@@ -23,7 +23,7 @@ class _LanguageBottomsheetState extends State<LanguageBottomsheet> {
               onTap: () {
                 languageProvider.changeAppLanguage('en');
               },
-              child: languageProvider.currenLanguage == 'en'
+              child: languageProvider.currentLanguage == 'en'
                   ? buildSelectedItemLangWidget('English')
                   : buildUnSelectedItemLangWidget('English')),
           SizedBox(
@@ -33,7 +33,7 @@ class _LanguageBottomsheetState extends State<LanguageBottomsheet> {
               onTap: () {
                 languageProvider.changeAppLanguage('ar');
               },
-              child: languageProvider.currenLanguage == 'ar'
+              child: languageProvider.currentLanguage == 'ar'
                   ? buildSelectedItemLangWidget('العربية')
                   : buildUnSelectedItemLangWidget('العربية')),
         ],

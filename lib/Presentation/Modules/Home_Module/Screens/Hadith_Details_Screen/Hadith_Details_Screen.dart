@@ -3,14 +3,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/hadith_Tab/Hadith_Tab.dart';
-import 'package:quran_app/Providers/ThemeProvider.dart';
+import 'package:quran_app/Providers/Settings_Provider.dart';
 
 class HadithDetailsScreen extends StatelessWidget {
   const HadithDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var myProvider = Provider.of<ThemeProvider>(context);
+    var myProvider = Provider.of<SettingsProvider>(context);
 
     Hadith hadithArgs = ModalRoute.of(context)?.settings.arguments as Hadith;
     return Container(

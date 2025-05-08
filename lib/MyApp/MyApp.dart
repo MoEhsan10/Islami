@@ -8,16 +8,15 @@ import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Hadith_Detail
 import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Home_Screen.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Quran_Details_Screen/Quran_Details_Screen.dart';
 import 'package:quran_app/Presentation/Modules/Splash_Module/SplashScreen/Splash.dart';
-import 'package:quran_app/Providers/LanguageProvider.dart';
-import 'package:quran_app/Providers/ThemeProvider.dart';
+import 'package:quran_app/Providers/Settings_Provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var themeProvider = Provider.of<ThemeProvider>(context);
-    var languageProvider = Provider.of<LanguageProvider>(context);
+    var themeProvider = Provider.of<SettingsProvider>(context);
+    var languageProvider = Provider.of<SettingsProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [Locale('ar'), Locale('en')],
-      locale: Locale(languageProvider.currenLanguage),
+      locale: Locale(languageProvider.currentLanguage),
     );
   }
 }

@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Screens/Quran_Details_Screen/Verse_Widget.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/quran_Tab/Quran_tab.dart';
-import 'package:quran_app/Providers/ThemeProvider.dart';
+
+import '../../../../../Providers/Settings_Provider.dart';
 
 class QuranDetailsScreen extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var myProvider = Provider.of<ThemeProvider>(context);
+    var myProvider = Provider.of<SettingsProvider>(context);
 
     SuraItem suraItem = ModalRoute.of(context)?.settings.arguments as SuraItem;
     readQuranFile(suraItem.index + 1);

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/Core/assets_Manager.dart';
-import 'package:quran_app/Providers/ThemeProvider.dart';
+
+import '../../../../../Providers/Settings_Provider.dart';
+
 class TasbehTab extends StatefulWidget {
   const TasbehTab({super.key});
 
@@ -36,7 +38,7 @@ class _TasbehTabState extends State<TasbehTab> {
 
   @override
   Widget build(BuildContext context) {
-    var themeProvider = Provider.of<ThemeProvider>(context);
+    var themeProvider = Provider.of<SettingsProvider>(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

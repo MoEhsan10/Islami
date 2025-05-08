@@ -7,7 +7,8 @@ import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/quran_Tab/Quran_
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/radio_Tab/Radio_Tab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/setting_Tab/SettingsTab.dart';
 import 'package:quran_app/Presentation/Modules/Home_Module/Tabs/tasbeh_Tab/Tasbeh_Tab.dart';
-import 'package:quran_app/Providers/ThemeProvider.dart';
+
+import '../../../../Providers/Settings_Provider.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var themeProvider = Provider.of<ThemeProvider>(context);
+    var themeProvider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(

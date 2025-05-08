@@ -13,3 +13,4 @@ class ThemeProvider extends ChangeNotifier {
     return currentTheme == ThemeMode.light;
   }
 }
+
